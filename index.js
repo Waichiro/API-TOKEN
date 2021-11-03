@@ -67,8 +67,8 @@ var DB = {
         {
             id: 1,
             nome: "ROOT",
-            email: "gabriel@gmail.com",
-            senha: "gabriel"
+            email: "ROOT",
+            senha: "ROOT"
         }
     ]
 }
