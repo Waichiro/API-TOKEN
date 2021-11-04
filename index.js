@@ -74,8 +74,27 @@ var DB = {
 }
 
 app.get("/games",auth,  (req, res) => {
+
+    var HATEOAS = [
+        {
+            href: "http://localhost:3030",
+            method: "DELETE",
+            rel: "delete_game"
+        },
+        {
+            href: "http://localhost:3030/game/0",
+            method: "GET",
+            rel: "get_game"
+        },
+        {
+            href: "http://localhost:3030/auth",
+            method: "POST",
+            rel: "login"
+        }
+    ]
+
     res.statusCode = 200;
-    res.json(DB.games);
+    res.json({games: DB.games, _links: HATEOAS});
 });
 
 app.get("/games/:id", (req, res) => {
